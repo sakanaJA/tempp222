@@ -21,7 +21,9 @@ starrySky.addEventListener('mousemove', (e) => {
 
 starrySky.addEventListener('click', (e) => {
     const explosion = document.createElement('div');
+    explosion.className = 'explosion'; // 爆発エフェクト用のクラスを追加
     explosion.className = 'star';
+    
     explosion.style.width = '50px';
     explosion.style.height = '50px';
     explosion.style.left = `${e.clientX}px`;
@@ -34,3 +36,4 @@ starrySky.addEventListener('click', (e) => {
         starrySky.removeChild(explosion);
     }, 500);
 });
+
