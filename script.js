@@ -21,11 +21,10 @@ starrySky.addEventListener('mousemove', (e) => {
 
 starrySky.addEventListener('click', (e) => {
     const explosion = document.createElement('div');
-    explosion.className = 'explosion'; // 爆発エフェクト用のクラスを追加
     explosion.className = 'star';
     
-    explosion.style.width = '50px';
-    explosion.style.height = '50px';
+    explosion.style.width = '5px';
+    explosion.style.height = '5px';
     explosion.style.left = `${e.clientX}px`;
     explosion.style.top = `${e.clientY}px`;
     explosion.style.animation = 'none';
@@ -36,4 +35,22 @@ starrySky.addEventListener('click', (e) => {
         starrySky.removeChild(explosion);
     }, 500);
 });
+
+
+starrySky.addEventListener('click', (e) => {
+  // 流れ星を生成
+  const shootingStar = document.createElement('div');
+  shootingStar.style.width = '50px';
+  shootingStar.style.height = '5px';
+  shootingStar.className = 'shooting-star';
+  shootingStar.style.left = `${e.clientX}px`;
+  shootingStar.style.top = `${e.clientY}px`;
+
+  starrySky.appendChild(shootingStar);
+
+  setTimeout(() => {
+      starrySky.removeChild(shootingStar);
+  }, 1000);  // 1秒後に流れ星を削除（アニメーション時間と一致）
+});
+
 
