@@ -28,22 +28,24 @@ body, html {
 /**流れ星*/
 .shooting-star {
     position: absolute;
-    width: 2px;
-    height: 10px;
+    width: 4px;
+    height: 4px;
     background-color: white;
-    transform-origin: bottom;
-    opacity: 0;
-    animation: shootingStar 1s forwards;
+    border-radius: 50%;
+    animation: moveShootingStar 2s ease-in-out forwards;
 }
 
-@keyframes shootingStar {
+@keyframes moveShootingStar {
     0% {
+        transform: translate(0, 0);
         opacity: 1;
-        transform: rotate(45deg) translateX(0px) translateY(0px);
+    }
+    50% {
+        transform: translate(100px, 50px);
+        opacity: 1;
     }
     100% {
+        transform: translate(200px, 0);
         opacity: 0;
-        transform: rotate(45deg) translateX(100px) translateY(-100px);
     }
 }
-

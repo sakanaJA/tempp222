@@ -38,19 +38,18 @@ starrySky.addEventListener('click', (e) => {
 
 
 starrySky.addEventListener('click', (e) => {
-  // 流れ星を生成
+  createShootingStar(e.clientX, e.clientY);
+});
+
+function createShootingStar(x, y) {
   const shootingStar = document.createElement('div');
-  shootingStar.style.width = '50px';
-  shootingStar.style.height = '5px';
   shootingStar.className = 'shooting-star';
-  shootingStar.style.left = `${e.clientX}px`;
-  shootingStar.style.top = `${e.clientY}px`;
+  shootingStar.style.left = `${x}px`;
+  shootingStar.style.top = `${y}px`;
 
   starrySky.appendChild(shootingStar);
 
   setTimeout(() => {
       starrySky.removeChild(shootingStar);
-  }, 1000);  // 1秒後に流れ星を削除（アニメーション時間と一致）
-});
-
-
+  }, 2000);  // 2秒後に流れ星を削除
+}
